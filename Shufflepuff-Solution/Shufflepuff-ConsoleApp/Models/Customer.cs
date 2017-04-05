@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shufflepuff_ConsoleApp.Models
 {
-    class Customer
+    public class Customer
     {
     }
 }
