@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shufflepuff_ConsoleApp.Models
 {
-    class OrderLine
+    public class OrderLine
     {
     }
 }
