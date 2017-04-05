@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shufflepuff-ConsoleApp", "Shufflepuff-ConsoleApp\Shufflepuff-ConsoleApp.csproj", "{77E69E6E-0624-4F26-B9BD-027D7A77D978}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E3BFD43A-C83D-4134-95BA-8EF0C4360B4E}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shufflepuff-Tests", "Shufflepuff-Tests\Shufflepuff-Tests.csproj", "{ADDE440F-E31E-4B90-B46F-79DD8B01F6D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77E69E6E-0624-4F26-B9BD-027D7A77D978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E69E6E-0624-4F26-B9BD-027D7A77D978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E69E6E-0624-4F26-B9BD-027D7A77D978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E69E6E-0624-4F26-B9BD-027D7A77D978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADDE440F-E31E-4B90-B46F-79DD8B01F6D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADDE440F-E31E-4B90-B46F-79DD8B01F6D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADDE440F-E31E-4B90-B46F-79DD8B01F6D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADDE440F-E31E-4B90-B46F-79DD8B01F6D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
