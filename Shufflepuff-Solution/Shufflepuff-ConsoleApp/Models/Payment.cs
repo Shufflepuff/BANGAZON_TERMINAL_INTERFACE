@@ -8,5 +8,12 @@ namespace Shufflepuff_ConsoleApp.Models
 {
     public class Payment
     {
+        public int PaymentId { get; set; }
+
+        public string Type { get; set; }
+
+        public int CustomerId { get; set; }
+
+        public int AccountNumber { get; set; }
     }
 }
