@@ -8,5 +8,7 @@ namespace Shufflepuff_ConsoleApp.Models
 {
     public class Invoice
     {
+        public int InvoiceId { get; set; }
+        public int PaymentId { get; set; }
     }
 }
