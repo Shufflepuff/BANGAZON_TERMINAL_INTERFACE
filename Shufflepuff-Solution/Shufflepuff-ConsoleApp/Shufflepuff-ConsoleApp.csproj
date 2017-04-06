@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICustomerRepo.cs" />
+    <Compile Include="Contracts\IInvoiceRepo.cs" />
+    <Compile Include="Contracts\IOrderLineRepo.cs" />
+    <Compile Include="Contracts\IPaymentRepo.cs" />
+    <Compile Include="Contracts\IProductRepo.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\OrderLine.cs" />
@@ -50,6 +55,11 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CustomerRepo.cs" />
+    <Compile Include="Repository\InvoiceRepo.cs" />
+    <Compile Include="Repository\OrderLineRepo.cs" />
+    <Compile Include="Repository\PaymentRepo.cs" />
+    <Compile Include="Repository\ProductRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

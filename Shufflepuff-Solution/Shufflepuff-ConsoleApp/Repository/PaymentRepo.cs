@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Shufflepuff_ConsoleApp.Repository
 {
-    public class IProductRepo : IProduct
+    public class PaymentRepo : IPaymentRepo
     {
     }
 }
