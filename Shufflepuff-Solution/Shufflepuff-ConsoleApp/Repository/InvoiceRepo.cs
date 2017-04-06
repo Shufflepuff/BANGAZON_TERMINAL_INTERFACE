@@ -9,5 +9,14 @@ namespace Shufflepuff_ConsoleApp.Repository
 {
     public class InvoiceRepo : IInvoiceRepo
     {
+        public void AddInvoice()
+        {
+            throw new NotImplementedException();
+        }
+
+        public InvoiceRepo GetInvoice()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

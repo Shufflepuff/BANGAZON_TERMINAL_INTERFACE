@@ -9,5 +9,14 @@ namespace Shufflepuff_ConsoleApp.Repository
 {
     public class OrderLineRepo : IOrderLineRepo
     {
+        public void AddOrderLine()
+        {
+            throw new NotImplementedException();
+        }
+
+        public OrderLineRepo GetOrderLine()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
