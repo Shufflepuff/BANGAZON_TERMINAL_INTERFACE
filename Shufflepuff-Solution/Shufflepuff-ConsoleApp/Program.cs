@@ -47,8 +47,8 @@ namespace Shufflepuff_ConsoleApp
                         break;
                     case "4":
                         //product search
-                        ProductRepo repo = new ProductRepo();
-
+                        Product getProduct = new Product();
+                        Console.WriteLine($"{getProduct}");
                         break;
                     case "5":
                         //complete order
