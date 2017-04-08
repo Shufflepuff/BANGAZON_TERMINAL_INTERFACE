@@ -75,7 +75,7 @@ namespace Shufflepuff_ConsoleApp.Repository
                         {
                             ProductId = reader.GetInt32(0),
                             Name = reader.GetString(1),
-                            Price = reader.GetInt32(2),
+                            Price = reader.GetDecimal(2),
                         };
                         return Product;
                     }
@@ -94,6 +94,48 @@ namespace Shufflepuff_ConsoleApp.Repository
 
                 return null;
             }
+
+        public List<Product> GetProducts()
+        {
+            _shufflepuffConnection.Open();
+
+            try
+            {
+                var getProductCommand = _shufflepuffConnection.CreateCommand();
+                getProductCommand.CommandText = @"
+                    SELECT ProductId, Name, Price
+                    FROM Product 
+                    ";
+
+                var reader = getProductCommand.ExecuteReader();
+
+                var products = new List<Product>();
+                if (reader.Read())
+                {
+                    var product = new Product
+                    {
+                        ProductId = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Price = reader.GetDecimal(2),
+                    };
+                    products.Add(product);
+                }
+                return products;
+            }
+
+            catch (SqlException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.StackTrace);
+            }
+
+            finally
+            {
+                _shufflepuffConnection.Close();
+            }
+
+            return new List<Product>();
+        }
     }
 
     }

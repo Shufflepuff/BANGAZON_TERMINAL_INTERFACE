@@ -12,5 +12,6 @@ namespace Shufflepuff_ConsoleApp.Contracts
     {
         void GetProducts(int ProductId, string Name, int Price);
         Product GetProduct(int ProductId);
+        List<Product> GetProducts();
     }
 }
