@@ -10,7 +10,7 @@ namespace Shufflepuff_ConsoleApp.Contracts
 {
     public interface ICustomerRepo
     {
-        void AddCustomer(string name, string address, string city, string state, int zip, int phone);
+        void AddCustomer(string name, string address, string city, string state, int zip, long phone);
 
         Customer GetCustomer(int customerId);
     }
