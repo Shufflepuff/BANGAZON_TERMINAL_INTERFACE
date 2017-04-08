@@ -1,4 +1,5 @@
-﻿using Shufflepuff_ConsoleApp.Repository;
+﻿using Shufflepuff_ConsoleApp.Models;
+using Shufflepuff_ConsoleApp.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace Shufflepuff_ConsoleApp.Contracts
 {
     public interface IOrderLineRepo
     {
-        void AddOrderLine();
+        void AddOrderLine(int Invoice_Id, int Product_Id, int Quantity);
 
-        OrderLineRepo GetOrderLine();
+        OrderLine GetOrderLine(int OrderLineId);
     }
 }
