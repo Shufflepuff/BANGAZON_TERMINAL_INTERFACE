@@ -165,10 +165,11 @@ CREATE TABLE [dbo].[Customer](
 
 GO
 
+
 USE [ShufflepuffBang]
 GO
 
-/****** Object:  Table [dbo].[Invoice]    Script Date: 4/5/2017 5:37:31 PM ******/
+/****** Object:  Table [dbo].[Invoice]    Script Date: 4/8/2017 12:13:56 PM ******/
 SET ANSI_NULLS ON
 GO
 
