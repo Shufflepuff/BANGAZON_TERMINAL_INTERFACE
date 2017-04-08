@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Shufflepuff_ConsoleApp.Models;
+using Shufflepuff_ConsoleApp.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,18 +35,27 @@ namespace Shufflepuff_ConsoleApp
                 {
                     case "1":
                         Console.Clear();
-                        Console.WriteLine("Create A New Account");
+                        Console.WriteLine("enter name");
+                        
                         break;
                     case "2":
                         Console.WriteLine("Choose Active Customer");
                         break;
                     case "3":
+                        //create payment option
                         break;
                     case "4":
+                        //product search
+                        ProductRepo repo = new ProductRepo();
+
                         break;
                     case "5":
+                        //complete order
                         break;
                     case "6":
+                        //product popularity
+                        
+
                         break;
                     case "7":
                         Console.WriteLine("See Ya!");

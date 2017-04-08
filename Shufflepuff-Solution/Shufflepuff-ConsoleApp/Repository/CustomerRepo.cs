@@ -18,7 +18,7 @@ namespace Shufflepuff_ConsoleApp.Repository
 
         public CustomerRepo()
         {
-            _shufflepuffConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            _shufflepuffConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ShufflepuffBang"].ConnectionString);
         }
 
         public void AddCustomer(string name, string address, string city, string state, int zip, int phone)
