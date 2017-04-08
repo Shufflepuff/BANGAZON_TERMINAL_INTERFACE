@@ -1,0 +1,4 @@
+Maintenance Script List & Descriptor
+
+MS1 - Changes type "int" to "bigint" on Phone Number on Customer table. Solves a problem with saving Phone Number.
+MS2 - Adds primary key to Invoice table. 
