@@ -36,7 +36,6 @@ namespace Shufflepuff_ConsoleApp
                     case "1":
                         Console.Clear();
                         Console.WriteLine("enter name");
-                        
                         break;
                     case "2":
                         Console.WriteLine("Choose Active Customer");
