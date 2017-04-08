@@ -168,7 +168,7 @@ GO
 USE [ShufflepuffBang]
 GO
 
-/****** Object:  Table [dbo].[Invoice]    Script Date: 4/5/2017 5:37:31 PM ******/
+/****** Object:  Table [dbo].[Invoice]    Script Date: 4/8/2017 11:45:43 AM ******/
 SET ANSI_NULLS ON
 GO
 
