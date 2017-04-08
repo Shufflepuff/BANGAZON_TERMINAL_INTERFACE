@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICustomer.cs" />
     <Compile Include="Contracts\ICustomerRepo.cs" />
     <Compile Include="Contracts\IInvoiceRepo.cs" />
     <Compile Include="Contracts\IOrderLineRepo.cs" />
