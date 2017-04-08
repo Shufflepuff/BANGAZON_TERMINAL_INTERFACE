@@ -18,7 +18,7 @@ namespace Shufflepuff_ConsoleApp.Repository
 
         public InvoiceRepo()
         {
-            _shufflepuffBang = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            _shufflepuffBang = new SqlConnection(ConfigurationManager.ConnectionStrings["ShufflepuffBang"].ConnectionString);
         }
         public void AddInvoice(int invoiceId, int paymentId)
         {
