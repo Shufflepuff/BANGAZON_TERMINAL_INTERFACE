@@ -18,10 +18,10 @@ namespace Shufflepuff_ConsoleApp.Repository
 
         public CustomerRepo()
         {
-            _shufflepuffConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            _shufflepuffConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ShufflepuffBang"].ConnectionString);
         }
 
-        public void AddCustomer(string name, string address, string city, string state, int zip, int phone)
+        public void AddCustomer(string name, string address, string city, string state, int zip, long phone)
         {
             _shufflepuffConnection.Open();
 
@@ -35,7 +35,7 @@ namespace Shufflepuff_ConsoleApp.Repository
                 addCustomerCommand.Parameters.Add(nameParameter);
 
                 var addressParameter = new SqlParameter("address", SqlDbType.VarChar);
-                addressParameter.Value = city;
+                addressParameter.Value = address;
                 addCustomerCommand.Parameters.Add(addressParameter);
 
                 var cityParameter = new SqlParameter("city", SqlDbType.VarChar);
@@ -43,15 +43,15 @@ namespace Shufflepuff_ConsoleApp.Repository
                 addCustomerCommand.Parameters.Add(cityParameter);
 
                 var stateParameter = new SqlParameter("state", SqlDbType.VarChar);
-                stateParameter.Value = city;
+                stateParameter.Value = state;
                 addCustomerCommand.Parameters.Add(stateParameter);
 
                 var zipParameter = new SqlParameter("zip", SqlDbType.Int);
                 zipParameter.Value = zip;
                 addCustomerCommand.Parameters.Add(zipParameter);
 
-                var phoneParameter = new SqlParameter("phone", SqlDbType.Int);
-                phoneParameter.Value = zip;
+                var phoneParameter = new SqlParameter("phone", SqlDbType.BigInt);
+                phoneParameter.Value = phone;
                 addCustomerCommand.Parameters.Add(phoneParameter);
 
                 addCustomerCommand.ExecuteNonQuery();
