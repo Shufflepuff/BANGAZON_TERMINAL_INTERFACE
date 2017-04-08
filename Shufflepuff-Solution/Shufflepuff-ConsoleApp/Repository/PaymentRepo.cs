@@ -14,7 +14,6 @@ namespace Shufflepuff_ConsoleApp.Repository
 {
     public class PaymentRepo : IPaymentRepo
     {
-
         SqlConnection _shufflepuffConnection;
  
         public PaymentRepo()
