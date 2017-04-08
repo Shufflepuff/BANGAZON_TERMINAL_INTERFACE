@@ -1,4 +1,5 @@
 ﻿using Shufflepuff_ConsoleApp.Repository;
+using Shufflepuff_ConsoleApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Shufflepuff_ConsoleApp.Contracts
 {
     public interface IProductRepo
     {
-        ProductRepo GetProducts();
+        void GetProducts(int ProductId, string Name, int Price);
+        Product GetProduct(int ProductId);
     }
 }
