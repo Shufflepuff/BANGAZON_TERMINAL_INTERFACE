@@ -1,4 +1,5 @@
-﻿using Shufflepuff_ConsoleApp.Repository;
+﻿using Shufflepuff_ConsoleApp.Models;
+using Shufflepuff_ConsoleApp.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace Shufflepuff_ConsoleApp.Contracts
     {
         void AddPayment(string type, int customerId, int accountNumber);
 
-        PaymentRepo GetPayment(int paymentId);
+        Payment GetPayment(int paymentId);
     }
 }
