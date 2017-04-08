@@ -156,7 +156,7 @@ CREATE TABLE [dbo].[Customer](
 	[City] [varchar](250) NULL,
 	[State] [varchar](250) NULL,
 	[Zip] [int] NULL,
-	[Phone] [int] NULL,
+	[Phone] [bigint] NULL,
  CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
 (
 	[CustomerId] ASC
