@@ -1,4 +1,5 @@
-﻿using Shufflepuff_ConsoleApp.Repository;
+﻿using Shufflepuff_ConsoleApp.Models;
+using Shufflepuff_ConsoleApp.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace Shufflepuff_ConsoleApp.Contracts
 {
     public interface IInvoiceRepo
     {
-        void AddInvoice();
+        void AddInvoice(int invoiceId, int paymentId);
 
-        InvoiceRepo GetInvoice();
+        Invoice GetInvoice(int InvoiceId);
     }
 }

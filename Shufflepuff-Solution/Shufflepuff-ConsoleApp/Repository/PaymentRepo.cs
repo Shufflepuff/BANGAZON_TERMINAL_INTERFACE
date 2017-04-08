@@ -9,5 +9,14 @@ namespace Shufflepuff_ConsoleApp.Repository
 {
     public class PaymentRepo : IPaymentRepo
     {
+        public void AddPayment()
+        {
+            throw new NotImplementedException();
+        }
+
+        public PaymentRepo GetPayment()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

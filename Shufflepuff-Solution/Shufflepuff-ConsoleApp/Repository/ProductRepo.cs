@@ -9,5 +9,9 @@ namespace Shufflepuff_ConsoleApp.Repository
 {
     public class ProductRepo : IProductRepo
     {
+        public ProductRepo GetProducts()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
