@@ -1,4 +1,5 @@
-﻿using Shufflepuff_ConsoleApp.Repository;
+﻿using Shufflepuff_ConsoleApp.Models;
+using Shufflepuff_ConsoleApp.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace Shufflepuff_ConsoleApp.Contracts
 {
     public interface ICustomerRepo
     {
-        void AddCustomer();
+        void AddCustomer(string name, string address, string city, string state, int zip, int phone);
 
-        CustomerRepo GetCustomer();
+        Customer GetCustomer(int customerId);
     }
 }
