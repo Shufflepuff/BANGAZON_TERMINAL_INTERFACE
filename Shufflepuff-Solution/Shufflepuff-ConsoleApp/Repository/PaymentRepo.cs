@@ -18,7 +18,7 @@ namespace Shufflepuff_ConsoleApp.Repository
  
         public PaymentRepo()
         {
-            _shufflepuffConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            _shufflepuffConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ShufflepuffBang"].ConnectionString);
         }
 
 
