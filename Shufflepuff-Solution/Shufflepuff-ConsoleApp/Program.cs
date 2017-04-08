@@ -47,16 +47,20 @@ namespace Shufflepuff_ConsoleApp
                         break;
                     case "4":
                         //product search
-                        Product getProduct = new Product();
-                        Console.WriteLine($"{getProduct}");
+                        ProductRepo repo = new ProductRepo();
+
+                        var products = repo.GetProducts();
+
+                        foreach (Product product in products)
+                        {
+                            Console.WriteLine(product.ProductId + ". " + product.Name + " " + product.Price);
+                        }
                         break;
                     case "5":
                         //complete order
                         break;
                     case "6":
                         //product popularity
-                        
-
                         break;
                     case "7":
                         Console.WriteLine("See Ya!");
