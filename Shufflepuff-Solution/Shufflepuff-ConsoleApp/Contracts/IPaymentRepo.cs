@@ -9,8 +9,8 @@ namespace Shufflepuff_ConsoleApp.Contracts
 {
     public interface IPaymentRepo
     {
-        void AddPayment();
+        void AddPayment(string type, int customerId, int accountNumber);
 
-        PaymentRepo GetPayment();
+        PaymentRepo GetPayment(int paymentId);
     }
 }
