@@ -1,6 +1,7 @@
 ﻿using Shufflepuff_ConsoleApp.Contracts;
 using Shufflepuff_ConsoleApp.Models;
 using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
