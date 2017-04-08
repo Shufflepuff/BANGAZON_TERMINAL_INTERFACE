@@ -9,6 +9,6 @@ namespace Shufflepuff_ConsoleApp.Repository
 {
     public class PaymentRepo : IPaymentRepo
     {
-        
+
     }
 }
