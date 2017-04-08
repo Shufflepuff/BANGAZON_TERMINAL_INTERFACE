@@ -9,14 +9,6 @@ namespace Shufflepuff_ConsoleApp.Repository
 {
     public class CustomerRepo : ICustomerRepo
     {
-        public void AddCustomer()
-        {
-            throw new NotImplementedException();
-        }
-
-        public CustomerRepo GetCustomer()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
