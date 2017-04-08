@@ -1,0 +1,6 @@
+Maintenance Script List & Descriptor
+
+Should be run in numerical order after the Deploy script.
+
+MS1 - Changes type "int" to "bigint" on Phone Number on Customer table. Solves a problem with saving Phone Number.
+MS2 - Adds Primary Key to Invoice Table.

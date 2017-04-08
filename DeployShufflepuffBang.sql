@@ -156,7 +156,7 @@ CREATE TABLE [dbo].[Customer](
 	[City] [varchar](250) NULL,
 	[State] [varchar](250) NULL,
 	[Zip] [int] NULL,
-	[Phone] [bigint] NULL,
+	[Phone] [int] NULL,
  CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
 (
 	[CustomerId] ASC
@@ -165,10 +165,11 @@ CREATE TABLE [dbo].[Customer](
 
 GO
 
+
 USE [ShufflepuffBang]
 GO
 
-/****** Object:  Table [dbo].[Invoice]    Script Date: 4/8/2017 11:45:43 AM ******/
+/****** Object:  Table [dbo].[Invoice]    Script Date: 4/8/2017 12:13:56 PM ******/
 SET ANSI_NULLS ON
 GO
 
