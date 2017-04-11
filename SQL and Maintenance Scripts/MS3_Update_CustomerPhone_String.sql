@@ -1,11 +1,11 @@
 USE [ShufflepuffBang]
 GO
 
-/****** Object:  Table [dbo].[Customer]    Script Date: 4/8/2017 11:36:10 AM ******/
+/****** Object:  Table [dbo].[Customer]    Script Date: 4/11/2017 6:18:35 PM ******/
 DROP TABLE [dbo].[Customer]
 GO
 
-/****** Object:  Table [dbo].[Customer]    Script Date: 4/8/2017 11:36:10 AM ******/
+/****** Object:  Table [dbo].[Customer]    Script Date: 4/11/2017 6:18:35 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -19,7 +19,7 @@ CREATE TABLE [dbo].[Customer](
 	[City] [varchar](250) NULL,
 	[State] [varchar](250) NULL,
 	[Zip] [int] NULL,
-	[Phone] [bigint] NULL,
+	[Phone] [varchar](50) NULL,
  CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
 (
 	[CustomerId] ASC
@@ -27,5 +27,4 @@ CREATE TABLE [dbo].[Customer](
 ) ON [PRIMARY]
 
 GO
-
 
