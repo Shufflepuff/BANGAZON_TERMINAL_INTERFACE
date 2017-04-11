@@ -20,6 +20,6 @@ namespace Shufflepuff_ConsoleApp.Models
 
         public int Zip { get; set; }
 
-        public int Phone { get; set; }
+        public long Phone { get; set; }
     }
 }
