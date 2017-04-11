@@ -62,6 +62,7 @@
     <Compile Include="Repository\OrderLineRepo.cs" />
     <Compile Include="Repository\PaymentRepo.cs" />
     <Compile Include="Repository\ProductRepo.cs" />
+    <Compile Include="UI\CreateAnAccount.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

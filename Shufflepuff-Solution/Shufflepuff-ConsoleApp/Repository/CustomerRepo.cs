@@ -21,7 +21,8 @@ namespace Shufflepuff_ConsoleApp.Repository
             _shufflepuffConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ShufflepuffBang"].ConnectionString);
         }
 
-        public void AddCustomer(string name, string address, string city, string state, int zip, long phone)
+
+        public bool AddCustomer(string name, string address, string city, string state, int zip, long phone)
         {
             _shufflepuffConnection.Open();
 
@@ -55,18 +56,22 @@ namespace Shufflepuff_ConsoleApp.Repository
                 addCustomerCommand.Parameters.Add(phoneParameter);
 
                 addCustomerCommand.ExecuteNonQuery();
+
+                return true;
             }
 
             catch (SqlException ex)
             {
                 Debug.WriteLine(ex.Message);
                 Debug.WriteLine(ex.StackTrace);
+                return false;
             }
 
             finally
             {
                 _shufflepuffConnection.Close();
             }
+            
         }
 
         public Customer GetCustomer(int customerId)
