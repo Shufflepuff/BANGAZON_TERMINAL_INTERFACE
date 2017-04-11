@@ -120,5 +120,53 @@ namespace Shufflepuff_ConsoleApp.Repository
 
             return null;
         }
+
+
+        //test for CLI
+        public List<Customer> GetCustomerList()
+        {
+            _shufflepuffConnection.Open();
+
+            try
+            {
+                var getCustomerCommand = _shufflepuffConnection.CreateCommand();
+                getCustomerCommand.CommandText = @"
+                    SELECT *
+                    FROM Customer 
+                ";
+
+                var reader = getCustomerCommand.ExecuteReader();
+                var customers = new List<Customer>();
+
+                while (reader.Read())
+                {
+                    var customer = new Customer
+                    {
+                        CustomerId = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        StreetAddress = reader.GetString(2),
+                        City = reader.GetString(3),
+                        State = reader.GetString(4),
+                        Zip = reader.GetInt32(5),
+                        Phone = reader.GetInt64(6)
+                    };
+                    customers.Add(customer);
+                }
+                return customers;
+            }
+
+            catch (SqlException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.StackTrace);
+            }
+
+            finally
+            {
+                _shufflepuffConnection.Close();
+            }
+
+            return new List<Customer>();
+        }
     }
 }

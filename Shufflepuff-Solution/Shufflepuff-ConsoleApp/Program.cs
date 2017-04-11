@@ -1,4 +1,3 @@
-﻿
 using Shufflepuff_ConsoleApp.Models;
 using Shufflepuff_ConsoleApp.Repository;
 using Shufflepuff_ConsoleApp.UI;
