@@ -128,12 +128,12 @@ namespace Shufflepuff_ConsoleApp.Repository
                 getCustomerCommand.CommandText = @"
                     SELECT *
                     FROM Customer 
-                    ";
+                ";
 
                 var reader = getCustomerCommand.ExecuteReader();
                 var customers = new List<Customer>();
 
-                if (reader.Read())
+                while (reader.Read())
                 {
                     var customer = new Customer
                     {
@@ -143,7 +143,7 @@ namespace Shufflepuff_ConsoleApp.Repository
                         City = reader.GetString(3),
                         State = reader.GetString(4),
                         Zip = reader.GetInt32(5),
-                        Phone = reader.GetInt32(6)
+                        Phone = reader.GetInt64(6)
                     };
                     customers.Add(customer);
                 }

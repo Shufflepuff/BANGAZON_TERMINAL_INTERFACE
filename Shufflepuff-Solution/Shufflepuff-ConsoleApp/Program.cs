@@ -38,14 +38,14 @@ namespace Shufflepuff_ConsoleApp
                         Console.WriteLine("enter name");
                         break;
                     case "2":
-                        Console.WriteLine("Choose Active Customer");
+                        //customer list
                         CustomerRepo showCustomer = new CustomerRepo();
 
                         List<Customer> customers = showCustomer.GetCustomerList();
 
                         foreach(Customer customer in customers)
                         {
-                            Console.WriteLine(customer.CustomerId + ". " + customer.Name + Environment.NewLine);
+                            Console.WriteLine(customer.CustomerId + ". " + customer.Name);
                         }
 
                         break;

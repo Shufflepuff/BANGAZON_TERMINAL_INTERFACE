@@ -106,7 +106,7 @@ namespace Shufflepuff_ConsoleApp.Repository
                 getProductCommand.CommandText = @"
                     SELECT *    
                     FROM Product 
-                    ";
+                ";
 
                 var reader = getProductCommand.ExecuteReader();
                 var products = new List<Product>();
