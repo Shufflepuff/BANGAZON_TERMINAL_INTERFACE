@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Shufflepuff_ConsoleApp.UI
 {
-    class CompleteOrder
+    public class CompleteOrder
     {
         //If no products have been selected
         //Please add some products to your order first. Press any key to return to main menu.
+        public void completeOrderPrompt()
+        {
+            Console.WriteLine("***Complete Order Module***");
 
+        }
         //if there are products in order
         //Your order total is $149.54. Ready to purchase
         //(Y/N) >

@@ -1,7 +1,7 @@
 
-﻿using Shufflepuff_ConsoleApp.Models;
+using Shufflepuff_ConsoleApp.Models;
 using Shufflepuff_ConsoleApp.Repository;
-
+using Shufflepuff_ConsoleApp.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,6 +57,8 @@ namespace Shufflepuff_ConsoleApp
                         }
                         break;
                     case "5":
+                        CompleteOrder completeOrder = new CompleteOrder();
+                        completeOrder.completeOrderPrompt();
                         //complete order
                         break;
                     case "6":
