@@ -15,8 +15,6 @@ namespace Shufflepuff_ConsoleApp
     {
         static void Main(string[] args)
         {
-
-
             Console.WriteLine(@"
                          **************************
                       ********************************
@@ -40,7 +38,16 @@ namespace Shufflepuff_ConsoleApp
                         Console.WriteLine("enter name");
                         break;
                     case "2":
-                        Console.WriteLine("Choose Active Customer");
+                        //customer list
+                        CustomerRepo showCustomer = new CustomerRepo();
+
+                        List<Customer> customers = showCustomer.GetCustomerList();
+
+                        foreach(Customer customer in customers)
+                        {
+                            Console.WriteLine(customer.CustomerId + ". " + customer.Name);
+                        }
+
                         break;
                     case "3":
                         //create payment option
@@ -49,12 +56,13 @@ namespace Shufflepuff_ConsoleApp
                         //product search
                         ProductRepo repo = new ProductRepo();
 
-                        var products = repo.GetProducts();
+                        List<Product> products = repo.GetProducts();
 
                         foreach (Product product in products)
                         {
                             Console.WriteLine(product.ProductId + ". " + product.Name + " " + product.Price);
                         }
+                        
                         break;
                     case "5":
                         //complete order

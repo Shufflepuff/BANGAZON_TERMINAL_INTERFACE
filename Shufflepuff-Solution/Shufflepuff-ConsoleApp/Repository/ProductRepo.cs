@@ -95,6 +95,7 @@ namespace Shufflepuff_ConsoleApp.Repository
                 return null;
             }
 
+        //test for CLI
         public List<Product> GetProducts()
         {
             _shufflepuffConnection.Open();
@@ -103,14 +104,14 @@ namespace Shufflepuff_ConsoleApp.Repository
             {
                 var getProductCommand = _shufflepuffConnection.CreateCommand();
                 getProductCommand.CommandText = @"
-                    SELECT ProductId, Name, Price
+                    SELECT *    
                     FROM Product 
-                    ";
+                ";
 
                 var reader = getProductCommand.ExecuteReader();
-
                 var products = new List<Product>();
-                if (reader.Read())
+
+                while (reader.Read())
                 {
                     var product = new Product
                     {
@@ -137,5 +138,4 @@ namespace Shufflepuff_ConsoleApp.Repository
             return new List<Product>();
         }
     }
-
-    }
+}
