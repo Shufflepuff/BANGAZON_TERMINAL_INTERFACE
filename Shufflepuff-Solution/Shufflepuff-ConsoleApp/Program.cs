@@ -19,6 +19,7 @@ namespace Shufflepuff_ConsoleApp
             CreateAnAccount createAnAccount = new CreateAnAccount();
             GetCustomerList getCustomerList = new GetCustomerList();
             CreatePayment createPayment = new CreatePayment();
+            AddProductToOrder addProduct = new AddProductToOrder();
 
             Console.WriteLine(@"
                          **************************
@@ -59,16 +60,22 @@ namespace Shufflepuff_ConsoleApp
                     Console.Clear();
                     goto START;
                 case "4":
-                    //product search
-                    ProductRepo repo = new ProductRepo();
+                    Console.WriteLine("Choose Product");
+                    addProduct.DisplayProductList();
+                    Console.Clear();
+                    Console.WriteLine(addProduct.SelectedProductId);
+                    Console.ReadLine();
+                    goto START;
+                ////product search
+                //ProductRepo repo = new ProductRepo();
 
-                    var products = repo.GetProducts();
+                //var products = repo.GetProducts();
 
-                    foreach (Product product in products)
-                    {
-                        Console.WriteLine(product.ProductId + ". " + product.Name + " " + product.Price);
-                    }
-                    break;
+                //foreach (Product product in products)
+                //{
+                //    Console.WriteLine(product.ProductId + ". " + product.Name + " " + product.Price);
+                //}
+                //break;
                 case "5":
                     //complete order
                     break;
