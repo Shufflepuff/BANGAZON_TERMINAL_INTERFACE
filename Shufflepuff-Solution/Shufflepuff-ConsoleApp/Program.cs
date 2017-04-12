@@ -46,7 +46,7 @@ namespace Shufflepuff_ConsoleApp
                     Console.WriteLine("Choose Active Customer");
                     getCustomerList.DisplayCustomerList();
                     Console.Clear();
-                    Console.WriteLine(getCustomerList.SelectedUserId);
+                    Console.WriteLine(getCustomerList.GetSelectedUserId());
                     Console.ReadLine();
                     goto START;
                 case "3":

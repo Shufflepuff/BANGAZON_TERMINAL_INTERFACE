@@ -10,13 +10,18 @@ namespace Shufflepuff_ConsoleApp.UI
 {
     public class GetCustomerList
     {
-        public int SelectedUserId { get; set; }
+        private int SelectedUserId;
 
         private CustomerRepo customerRepo { get; set; }
 
         public GetCustomerList()
         {
             customerRepo = new CustomerRepo();
+        }
+
+        public int GetSelectedUserId()
+        {
+            return SelectedUserId;
         }
 
         public void DisplayCustomerList()
