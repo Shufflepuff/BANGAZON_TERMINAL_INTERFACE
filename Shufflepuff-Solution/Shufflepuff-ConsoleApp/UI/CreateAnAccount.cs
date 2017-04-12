@@ -1,4 +1,5 @@
-﻿using Shufflepuff_ConsoleApp.Repository;
+﻿using Shufflepuff_ConsoleApp.Models;
+using Shufflepuff_ConsoleApp.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,33 +11,35 @@ namespace Shufflepuff_ConsoleApp.UI
     public class CreateAnAccount
     {
         private CustomerRepo customerRepo { get; set; }
+        private Customer customer { get; set; }
 
         public CreateAnAccount()
         {
             customerRepo = new CustomerRepo();
+            customer = new Customer();
         }
 
         public bool CreateNewAccount()
         {
             Console.WriteLine("Enter customer name");
-            string customerName = Console.ReadLine();
+            customer.Name = Console.ReadLine();
 
             Console.WriteLine("Enter street address");
-            string customerAddress = Console.ReadLine();
+            customer.StreetAddress = Console.ReadLine();
 
             Console.WriteLine("Enter city");
-            string customerCity= Console.ReadLine();
+            customer.City = Console.ReadLine();
 
             Console.WriteLine("Enter state");
-            string customerState = Console.ReadLine();
+            customer.State = Console.ReadLine();
 
             Console.WriteLine("Enter postal code");
-            int customerPostalCode = Convert.ToInt32(Console.ReadLine());
+            customer.Zip = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Enter phone number");
-            long customerPhoneNumber = Convert.ToInt64(Console.ReadLine());
+            customer.Phone = Convert.ToInt64(Console.ReadLine());
 
-            return customerRepo.AddCustomer(customerName, customerAddress, customerCity, customerState, customerPostalCode, customerPhoneNumber);
+            return customerRepo.AddCustomer(customer);
         }
     }
 }

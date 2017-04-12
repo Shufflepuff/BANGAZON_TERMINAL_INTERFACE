@@ -22,7 +22,7 @@ namespace Shufflepuff_ConsoleApp.Repository
         }
 
 
-        public bool AddCustomer(string name, string address, string city, string state, int zip, long phone)
+        public bool AddCustomer(Customer customer)
         {
             _shufflepuffConnection.Open();
 
@@ -32,27 +32,27 @@ namespace Shufflepuff_ConsoleApp.Repository
                 addCustomerCommand.CommandText = "Insert into Customer(Name,StreetAddress,City,State,Zip,Phone) values(@name,@address,@city,@state,@zip,@phone)";
 
                 var nameParameter = new SqlParameter("name", SqlDbType.VarChar);
-                nameParameter.Value = name;
+                nameParameter.Value = customer.Name;
                 addCustomerCommand.Parameters.Add(nameParameter);
 
                 var addressParameter = new SqlParameter("address", SqlDbType.VarChar);
-                addressParameter.Value = address;
+                addressParameter.Value = customer.StreetAddress;
                 addCustomerCommand.Parameters.Add(addressParameter);
 
                 var cityParameter = new SqlParameter("city", SqlDbType.VarChar);
-                cityParameter.Value = city;
+                cityParameter.Value = customer.City;
                 addCustomerCommand.Parameters.Add(cityParameter);
 
                 var stateParameter = new SqlParameter("state", SqlDbType.VarChar);
-                stateParameter.Value = state;
+                stateParameter.Value = customer.State;
                 addCustomerCommand.Parameters.Add(stateParameter);
 
                 var zipParameter = new SqlParameter("zip", SqlDbType.Int);
-                zipParameter.Value = zip;
+                zipParameter.Value = customer.Zip;
                 addCustomerCommand.Parameters.Add(zipParameter);
 
                 var phoneParameter = new SqlParameter("phone", SqlDbType.BigInt);
-                phoneParameter.Value = phone;
+                phoneParameter.Value = customer.Phone;
                 addCustomerCommand.Parameters.Add(phoneParameter);
 
                 addCustomerCommand.ExecuteNonQuery();
@@ -131,7 +131,7 @@ namespace Shufflepuff_ConsoleApp.Repository
             {
                 var getCustomerCommand = _shufflepuffConnection.CreateCommand();
                 getCustomerCommand.CommandText = @"
-                    SELECT *
+                    SELECT CustomerId, Name
                     FROM Customer 
                 ";
 
@@ -143,12 +143,7 @@ namespace Shufflepuff_ConsoleApp.Repository
                     var customer = new Customer
                     {
                         CustomerId = reader.GetInt32(0),
-                        Name = reader.GetString(1),
-                        StreetAddress = reader.GetString(2),
-                        City = reader.GetString(3),
-                        State = reader.GetString(4),
-                        Zip = reader.GetInt32(5),
-                        Phone = reader.GetInt64(6)
+                        Name = reader.GetString(1)
                     };
                     customers.Add(customer);
                 }
