@@ -22,7 +22,7 @@ namespace Shufflepuff_ConsoleApp.Repository
         }
 
 
-        public void AddPayment(string type, int customerId, int accountNumber)
+        public bool AddPayment(string type, int customerId, int accountNumber)
         {
             _shufflepuffConnection.Open();
 
@@ -44,12 +44,14 @@ namespace Shufflepuff_ConsoleApp.Repository
                 addPaymentCommand.Parameters.Add(accountNumberParameter);
 
                 addPaymentCommand.ExecuteNonQuery();
+                return true;
             }
 
             catch(SqlException ex)
             {
                 Debug.WriteLine(ex.Message);
                 Debug.WriteLine(ex.StackTrace);
+                return false;
             }
 
             finally
