@@ -35,25 +35,25 @@ namespace Shufflepuff_ConsoleApp.UI
                 Console.WriteLine($"{counter}. {customer.Name}");
                 counter++;
             }
-            //var userInput = Console.ReadLine();
+            var userInput = Console.ReadLine();
             Console.ReadLine();
-            //int selectedUser;
+            int selectedUser;
 
-            //    if (Int32.TryParse(userInput, out selectedUser))
-            //    {
-            //        for (var i = 0; i < customerList.Count(); i++)
-            //        {
-            //            if (i == selectedUser)
-            //            {
-            //                SelectedUserId = customerList[i].CustomerId;
-            //            }
-            //        }
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("Please enter a valid input.");
-            //        DisplayCustomerList();
-            //    }
+            if (Int32.TryParse(userInput, out selectedUser))
+            {
+                for (var i = 0; i < customerList.Count(); i++)
+                {
+                    if (i == selectedUser)
+                    {
+                        SelectedUserId = customerList[i].CustomerId;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid input.");
+                DisplayCustomerList();
+            }
         }
     }
 }
