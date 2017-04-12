@@ -19,20 +19,38 @@ namespace Shufflepuff_ConsoleApp.UI
             payment = new Payment();
         }
 
-        public void SelectPaymentType()
+        public bool SelectPaymentType()
         {
             int customerSlected = getCustomerList.SelectedUserId;
-            //logic for selected custom, customer Id needed from getCustomerList.cs
 
             Console.WriteLine(@" 1. Visa" + Environment.NewLine + " 2. MasterCard" + Environment.NewLine + " 3. Paypal" + Environment.NewLine + " 4. Bitcoin" + Environment.NewLine);
 
+            string typeSelectedByUser = Console.ReadKey(true).KeyChar.ToString();
 
-
-            //logic for number selected = to string type ie: 1 is selected "Visa" gets stored as string into paymentType
-            string paymentType = Console.ReadLine();
+            switch (typeSelectedByUser)
+            {
+                case "1":
+                    Console.WriteLine("You have selected Visa");
+                    payment.Type = "Visa";
+                    break;
+                case "2":
+                    Console.WriteLine("You have selected MasterCard");
+                    payment.Type = "MasterCard";
+                    break;
+                case "3":
+                    Console.WriteLine("You have selected PayPal");
+                    payment.Type = "PayPal";
+                    break;
+                case "4":
+                    Console.WriteLine("You have selected Bitcoin");
+                    payment.Type = "Bitcoin";
+                    break;
+            }
 
             Console.WriteLine("Enter account number");
-            int paymentAccountNumber = Convert.ToInt32(Console.ReadLine());  
+            int paymentAccountNumber = Convert.ToInt32(Console.ReadLine());
+
+            return paymentRepo.AddPayment(payment.Type, customerSlected, paymentAccountNumber);
         }
     }
 }
