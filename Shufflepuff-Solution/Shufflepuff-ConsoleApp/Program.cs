@@ -17,6 +17,7 @@ namespace Shufflepuff_ConsoleApp
         static void Main(string[] args)
         {
             CreateAnAccount createAnAccount = new CreateAnAccount();
+            GetCustomerList getCustomerList = new GetCustomerList();
 
             Console.WriteLine(@"
                          **************************
@@ -43,7 +44,11 @@ namespace Shufflepuff_ConsoleApp
                     goto START;
                 case "2":
                     Console.WriteLine("Choose Active Customer");
-                    break;
+                    getCustomerList.DisplayCustomerList();
+                    Console.Clear();
+                    Console.WriteLine(getCustomerList.SelectedUserId);
+                    Console.ReadLine();
+                    goto START;
                 case "3":
                     //create payment option
                     break;
