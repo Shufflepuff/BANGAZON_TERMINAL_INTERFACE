@@ -61,7 +61,6 @@ namespace Shufflepuff_ConsoleApp.UI
                         SelectedProductId = productList[i].ProductId;
                     }
                 }
-
             }
             else
             {
