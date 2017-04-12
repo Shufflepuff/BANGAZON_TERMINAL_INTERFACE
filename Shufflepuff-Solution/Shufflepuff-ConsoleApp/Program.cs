@@ -17,6 +17,8 @@ namespace Shufflepuff_ConsoleApp
         static void Main(string[] args)
         {
             CreateAnAccount createAnAccount = new CreateAnAccount();
+            GetCustomerList getCustomerList = new GetCustomerList();
+            CreatePayment createPayment = new CreatePayment();
 
             Console.WriteLine(@"
                          **************************
@@ -27,6 +29,8 @@ namespace Shufflepuff_ConsoleApp
                          **************************"
                 );
             START:
+            Console.WriteLine(getCustomerList.GetSelectedUserId());
+            Console.ReadLine();
             Console.WriteLine(@" 1. Create an Account" + Environment.NewLine + " 2. Choose Active Customer" + Environment.NewLine + " 3. Create Payment Option" + Environment.NewLine + " 4. Search for Products" + Environment.NewLine + " 5. Complete Order" + Environment.NewLine + " 6. See Product Popularity" + Environment.NewLine + " 7. Leave Shufflepuff Bangazon"
                 );
 
@@ -43,10 +47,17 @@ namespace Shufflepuff_ConsoleApp
                     goto START;
                 case "2":
                     Console.WriteLine("Choose Active Customer");
-                    break;
+                    getCustomerList.DisplayCustomerList();
+                    Console.Clear();
+                    Console.WriteLine(getCustomerList.GetSelectedUserId());
+                    Console.ReadLine();
+                    goto START;
                 case "3":
-                    //create payment option
-                    break;
+                    Console.Clear();
+                    var paymentSavedToDatabase = createPayment.SelectPaymentType();
+                    Debug.WriteLine(paymentSavedToDatabase);
+                    Console.Clear();
+                    goto START;
                 case "4":
                     //product search
                     ProductRepo repo = new ProductRepo();

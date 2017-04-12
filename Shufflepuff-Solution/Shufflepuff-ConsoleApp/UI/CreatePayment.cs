@@ -1,5 +1,6 @@
 ﻿using Shufflepuff_ConsoleApp.Models;
 using Shufflepuff_ConsoleApp.Repository;
+using Shufflepuff_ConsoleApp.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,11 @@ namespace Shufflepuff_ConsoleApp.UI
 
         public bool SelectPaymentType()
         {
-            int customerSlected = getCustomerList.SelectedUserId;
+            GetCustomerList getCustomerList =  new GetCustomerList();
+            int customerSelected = getCustomerList.GetSelectedUserId();
+
+            Console.WriteLine(customerSelected);
+            Console.ReadLine();
 
             Console.WriteLine(@" 1. Visa" + Environment.NewLine + " 2. MasterCard" + Environment.NewLine + " 3. Paypal" + Environment.NewLine + " 4. Bitcoin" + Environment.NewLine);
 
@@ -50,7 +55,8 @@ namespace Shufflepuff_ConsoleApp.UI
             Console.WriteLine("Enter account number");
             int paymentAccountNumber = Convert.ToInt32(Console.ReadLine());
 
-            return paymentRepo.AddPayment(payment.Type, customerSlected, paymentAccountNumber);
+           
+            return paymentRepo.AddPayment(payment.Type, customerSelected, paymentAccountNumber);
         }
     }
 }

@@ -64,6 +64,7 @@
     <Compile Include="Repository\ProductRepo.cs" />
     <Compile Include="UI\CreateAnAccount.cs" />
     <Compile Include="UI\CreatePayment.cs" />
+    <Compile Include="UI\GetCustomerList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
