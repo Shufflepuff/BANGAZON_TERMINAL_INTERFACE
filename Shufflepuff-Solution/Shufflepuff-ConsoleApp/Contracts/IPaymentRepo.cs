@@ -12,6 +12,8 @@ namespace Shufflepuff_ConsoleApp.Contracts
     {
         bool AddPayment(string type, int customerId, int accountNumber);
 
-        Payment GetPayment(int paymentId);
+        Payment GetPayment(int paymentId, int customerId);
+
+        List<Payment> GetPayments(int customerId);
     }
 }
