@@ -87,7 +87,15 @@ namespace Shufflepuff_ConsoleApp
                     break;
                 case "6":
                     //product popularity
-                    break;
+                    PaymentRepo repo = new PaymentRepo();
+
+                    var payments = repo.GetPayments(getCustomerList.GetSelectedUserId());
+
+                    foreach (var payment in payments)
+                    {
+                        Console.WriteLine(payment.Type + ". " + payment.AccountNumber);
+                    }
+                    goto START;
                 case "7":
                     Console.WriteLine("See Ya!");
                     Environment.Exit(0);

@@ -60,7 +60,7 @@ namespace Shufflepuff_ConsoleApp.Repository
             }
         }
 
-        public Payment GetPayment(int paymentId)
+        public Payment GetPayment(int paymentId, int customerId)
         {
             _shufflepuffConnection.Open();
 
@@ -82,10 +82,11 @@ namespace Shufflepuff_ConsoleApp.Repository
                  {
                     var payment = new Payment
                      {
-                        Type = reader.GetString(0),
-                        CustomerId = reader.GetInt32(1),
-                        AccountNumber = reader.GetInt32(2),
-                     };
+                        PaymentId = reader.GetInt32(0),
+                        Type = reader.GetString(1),
+                        CustomerId = reader.GetInt32(2),
+                        AccountNumber = reader.GetInt32(3)
+                    };
                      return payment;
                  }
 
@@ -103,6 +104,49 @@ namespace Shufflepuff_ConsoleApp.Repository
                 _shufflepuffConnection.Close();
             }
             return null;
+        }
+
+        public List<Payment> GetPayments(int customerId)
+        {
+            _shufflepuffConnection.Open();
+
+            try
+            {
+                var getPaymentsCommand = _shufflepuffConnection.CreateCommand();
+                getPaymentsCommand.CommandText = @"
+                    SELECT *    
+                    FROM Payment 
+                ";
+
+                var reader = getPaymentsCommand.ExecuteReader();
+                var payments = new List<Payment>();
+
+                while (reader.Read())
+                {
+                    var payment = new Payment
+                    {
+                        PaymentId = reader.GetInt32(0),
+                        Type = reader.GetString(1),
+                        CustomerId = reader.GetInt32(2),
+                        AccountNumber = reader.GetInt32(3)
+                    };
+                    payments.Add(payment);
+                }
+                return payments;
+            }
+
+            catch (SqlException ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.StackTrace);
+            }
+
+            finally
+            {
+                _shufflepuffConnection.Close();
+            }
+
+            return new List<Payment>();
         }
     }
 }
