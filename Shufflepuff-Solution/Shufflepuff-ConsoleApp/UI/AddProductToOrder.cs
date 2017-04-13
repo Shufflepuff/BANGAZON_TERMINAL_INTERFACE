@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Shufflepuff_ConsoleApp.UI
 {
+    
     class AddProductToOrder
     {
+        private static List<int> products;
         public int SelectedProductId { get; set; }
         private ProductRepo productRepo { get; set; }
         private InvoiceRepo customerInvoice { get; set; }
@@ -19,6 +21,12 @@ namespace Shufflepuff_ConsoleApp.UI
             productRepo = new ProductRepo();
             customerInvoice = new InvoiceRepo();
             invoiceOrderLine = new OrderLineRepo();
+            products = new List<int>();
+        }
+
+        public List<int> GetProducts()
+        {
+            return products;
         }
 
         //Add Product to an Order
@@ -36,7 +44,7 @@ namespace Shufflepuff_ConsoleApp.UI
         //...
         //9. Done adding products
 
-        public void DisplayProductList()
+        public bool DisplayProductList()
         {
             List<Product> productList = productRepo.GetProducts();
 
@@ -48,6 +56,9 @@ namespace Shufflepuff_ConsoleApp.UI
                 Console.WriteLine($"{counter}. {product.Name}");
                 counter++;
             }
+            int exitcode = counter++;
+            Console.WriteLine($"{exitcode}. Done adding products");
+
             var userInput = Console.ReadLine();
 
             int selectedProduct;
@@ -59,13 +70,22 @@ namespace Shufflepuff_ConsoleApp.UI
                     if (i == selectedProduct)
                     {
                         SelectedProductId = productList[i].ProductId;
+                        products.Add(SelectedProductId);
+                        DisplayProductList();    
+                        
                     }
                 }
+                return true;
+            }
+            else if(selectedProduct == exitcode)
+            {
+                return false;
             }
             else
             {
                 Console.WriteLine("Please enter a valid input.");
                 DisplayProductList();
+                return false;
             }
         }
 

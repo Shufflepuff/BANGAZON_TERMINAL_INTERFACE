@@ -63,8 +63,14 @@ namespace Shufflepuff_ConsoleApp
                     Console.WriteLine("Choose Product");
                     addProduct.DisplayProductList();
                     Console.Clear();
-                    Console.WriteLine(addProduct.SelectedProductId);
+                    //Console.WriteLine(addProduct.SelectedProductId);
+                    List<int> productIdList = addProduct.GetProducts();
+                    foreach (int item in productIdList)
+                    {
+                        Console.WriteLine(item);
+                    }
                     Console.ReadLine();
+
                     goto START;
                 ////product search
                 //ProductRepo repo = new ProductRepo();
