@@ -1,3 +1,5 @@
+USE [ShufflepuffBang]
+
 INSERT INTO Customer (Name, StreetAddress, City, State, Zip, Phone)
 VALUES ('Alex Sabertooth', '123 Concord Lane', 'Brentwood', 'TN', '37027', '555-555-5555')
 
