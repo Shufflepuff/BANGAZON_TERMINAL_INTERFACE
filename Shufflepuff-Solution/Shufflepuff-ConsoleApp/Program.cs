@@ -20,6 +20,7 @@ namespace Shufflepuff_ConsoleApp
             GetCustomerList getCustomerList = new GetCustomerList();
             CreatePayment createPayment = new CreatePayment();
             AddProductToOrder addProduct = new AddProductToOrder();
+            CompleteOrder completeOrder = new CompleteOrder();
 
             Console.WriteLine(@"
                          **************************
@@ -30,8 +31,6 @@ namespace Shufflepuff_ConsoleApp
                          **************************"
                 );
             START:
-            Console.WriteLine(getCustomerList.GetSelectedUserId());
-            Console.ReadLine();
             Console.WriteLine(@" 1. Create an Account" + Environment.NewLine + " 2. Choose Active Customer" + Environment.NewLine + " 3. Create Payment Option" + Environment.NewLine + " 4. Search for Products" + Environment.NewLine + " 5. Complete Order" + Environment.NewLine + " 6. See Product Popularity" + Environment.NewLine + " 7. Leave Shufflepuff Bangazon"
                 );
 
@@ -50,8 +49,6 @@ namespace Shufflepuff_ConsoleApp
                     Console.WriteLine("Choose Active Customer");
                     getCustomerList.DisplayCustomerList();
                     Console.Clear();
-                    Console.WriteLine(getCustomerList.GetSelectedUserId());
-                    Console.ReadLine();
                     goto START;
                 case "3":
                     Console.Clear();
@@ -64,8 +61,8 @@ namespace Shufflepuff_ConsoleApp
                     addProduct.DisplayProductList();
                     Console.Clear();
                     //Console.WriteLine(addProduct.SelectedProductId);
-                    List<int> productIdList = addProduct.GetProducts();
-                    foreach (int item in productIdList)
+                    List<Product> productIdList = addProduct.GetProducts();
+                    foreach (Product item in productIdList)
                     {
                         Console.WriteLine(item);
                     }
@@ -84,7 +81,19 @@ namespace Shufflepuff_ConsoleApp
                 //break;
                 case "5":
                     //complete order
-                    break;
+                    if (completeOrder.DetermineIfOrderContainsProducts())
+                    {
+                        if (completeOrder.DetermineIfReadyToPurchase())
+                        {
+                            completeOrder.ChoosePaymentMethod();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please add products to your order.  Press any key to continue.");
+                        Console.Clear();
+                    }
+                    goto START;
                 case "6":
                     //product popularity
                     PaymentRepo repo = new PaymentRepo();

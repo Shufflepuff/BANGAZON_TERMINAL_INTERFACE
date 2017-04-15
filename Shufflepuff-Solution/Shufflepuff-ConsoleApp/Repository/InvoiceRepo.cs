@@ -20,22 +20,20 @@ namespace Shufflepuff_ConsoleApp.Repository
         {
             _shufflepuffBang = new SqlConnection(ConfigurationManager.ConnectionStrings["ShufflepuffBang"].ConnectionString);
         }
-        public void AddInvoice(int invoiceId, int paymentId)
+        public void AddInvoice(int paymentId)
         {
             _shufflepuffBang.Open();
 
             try
             {
                 var addInvoiceCommand = _shufflepuffBang.CreateCommand();
-                addInvoiceCommand.CommandText = "Insert into Invoice(InvoiceId,ProductId) values(@invoiceId,@productId)";
-                var invoiceIdParameter = new SqlParameter("invoiceId", SqlDbType.Int);
-                invoiceIdParameter.Value = invoiceId;
-                addInvoiceCommand.Parameters.Add(invoiceIdParameter);
+                addInvoiceCommand.CommandText = "Insert into Invoice(PaymentId) values(@paymentId);SELECT CAST(scope_identity() AS int)";
+
                 var paymentIdParameter = new SqlParameter("paymentId", SqlDbType.Int);
                 paymentIdParameter.Value = paymentId;
                 addInvoiceCommand.Parameters.Add(paymentIdParameter);
 
-                addInvoiceCommand.ExecuteNonQuery();
+                var addedInvoice = addInvoiceCommand.ExecuteScalar();
             }
             catch (SqlException ex)
             {
