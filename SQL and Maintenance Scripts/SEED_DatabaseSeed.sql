@@ -7,7 +7,7 @@ INSERT INTO Invoice (PaymentId)
 VALUES (1)
 
 INSERT INTO OrderLine (InvoiceId, ProductId, Quantity)
-VALUES(1, 1, 1)
+VALUES(1, 1)
 
 INSERT INTO Payment (Type, CustomerId, AccountNumber)
 VALUES ('Visa', 1, 12345)
