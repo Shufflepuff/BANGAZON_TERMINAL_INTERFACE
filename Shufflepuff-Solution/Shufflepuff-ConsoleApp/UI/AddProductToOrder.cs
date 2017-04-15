@@ -11,7 +11,7 @@ namespace Shufflepuff_ConsoleApp.UI
     
     class AddProductToOrder
     {
-        private static List<int> products;
+        private static List<Product> products;
         public int SelectedProductId { get; set; }
         private ProductRepo productRepo { get; set; }
         private InvoiceRepo customerInvoice { get; set; }
@@ -21,10 +21,10 @@ namespace Shufflepuff_ConsoleApp.UI
             productRepo = new ProductRepo();
             customerInvoice = new InvoiceRepo();
             invoiceOrderLine = new OrderLineRepo();
-            products = new List<int>();
+            products = new List<Product>();
         }
 
-        public List<int> GetProducts()
+        public List<Product> GetProducts()
         {
             return products;
         }
@@ -61,23 +61,25 @@ namespace Shufflepuff_ConsoleApp.UI
 
             var userInput = Console.ReadLine();
 
-            int selectedProduct;
+            Product selectedProduct;
 
-            if (Int32.TryParse(userInput, out selectedProduct))
+            int selectedUIProduct;
+
+            if (Int32.TryParse(userInput, out selectedUIProduct))
             {
                 for (var i = 0; i < productList.Count(); i++)
                 {
-                    if (i == selectedProduct)
+                    if (i == selectedUIProduct)
                     {
-                        SelectedProductId = productList[i].ProductId;
-                        products.Add(SelectedProductId);
+                        selectedProduct = productList[i];
+                        products.Add(selectedProduct);
                         DisplayProductList();    
                         
                     }
                 }
                 return true;
             }
-            else if(selectedProduct == exitcode)
+            else if(selectedUIProduct == exitcode)
             {
                 return false;
             }

@@ -22,16 +22,14 @@ namespace Shufflepuff_ConsoleApp.UI
 
         public bool SelectPaymentType()
         {
+            START:
             GetCustomerList getCustomerList =  new GetCustomerList();
             int customerSelected = getCustomerList.GetSelectedUserId();
-
-            Console.WriteLine(customerSelected);
-            Console.ReadLine();
 
             Console.WriteLine(@" 1. Visa" + Environment.NewLine + " 2. MasterCard" + Environment.NewLine + " 3. Paypal" + Environment.NewLine + " 4. Bitcoin" + Environment.NewLine);
 
             string typeSelectedByUser = Console.ReadKey(true).KeyChar.ToString();
-
+            
             switch (typeSelectedByUser)
             {
                 case "1":
@@ -50,6 +48,11 @@ namespace Shufflepuff_ConsoleApp.UI
                     Console.WriteLine("You have selected Bitcoin");
                     payment.Type = "Bitcoin";
                     break;
+                default:
+                    Console.WriteLine("Please make a valid selection.  Press any key to continue.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    goto START;
             }
 
             Console.WriteLine("Enter account number");

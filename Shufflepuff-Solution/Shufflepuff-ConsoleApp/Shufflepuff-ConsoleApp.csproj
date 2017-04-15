@@ -65,6 +65,7 @@
     <Compile Include="UI\AddProductToOrder.cs" />
     <Compile Include="UI\CreateAnAccount.cs" />
     <Compile Include="UI\CreatePayment.cs" />
+    <Compile Include="UI\CompleteOrder.cs" />
     <Compile Include="UI\GetCustomerList.cs" />
   </ItemGroup>
   <ItemGroup>

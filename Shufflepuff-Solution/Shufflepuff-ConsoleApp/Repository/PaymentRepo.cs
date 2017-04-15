@@ -116,7 +116,11 @@ namespace Shufflepuff_ConsoleApp.Repository
                 getPaymentsCommand.CommandText = @"
                     SELECT *    
                     FROM Payment 
-                ";
+                    WHERE CustomerId = @customerId";
+
+                var customerIdParam = new SqlParameter("customerId", SqlDbType.Int);
+                customerIdParam.Value = customerId;
+                getPaymentsCommand.Parameters.Add(customerIdParam);
 
                 var reader = getPaymentsCommand.ExecuteReader();
                 var payments = new List<Payment>();

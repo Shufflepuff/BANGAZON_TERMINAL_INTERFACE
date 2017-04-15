@@ -10,7 +10,7 @@ namespace Shufflepuff_ConsoleApp.Contracts
 {
     public interface IInvoiceRepo
     {
-        void AddInvoice(int invoiceId, int paymentId);
+        void AddInvoice(int paymentId);
 
         Invoice GetInvoice(int InvoiceId);
     }

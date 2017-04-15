@@ -36,14 +36,21 @@ namespace Shufflepuff_ConsoleApp.UI
                 counter++;
             }
             var userInput = Console.ReadLine();
-            Console.ReadLine();
             int selectedUser;
 
             if (Int32.TryParse(userInput, out selectedUser))
             {
+                SelectedUserId = 0;
                 for (var i = 0; i < customerList.Count(); i++)
                 {
-                    if (i == selectedUser)
+                    if (selectedUser >= customerList.Count() || selectedUser < 0)
+                    {
+                        Console.WriteLine("Please enter a valid number");
+                        Console.ReadLine();
+                        selectedUser = 0;
+                        DisplayCustomerList();
+                    }
+                    else if (i == selectedUser)
                     {
                         SelectedUserId = customerList[i].CustomerId;
                     }
@@ -51,7 +58,9 @@ namespace Shufflepuff_ConsoleApp.UI
             }
             else
             {
-                Console.WriteLine("Please enter a valid input.");
+                Console.WriteLine("Please enter a valid input!!!");
+                Console.ReadLine();
+                selectedUser = 0;
                 DisplayCustomerList();
             }
         }
